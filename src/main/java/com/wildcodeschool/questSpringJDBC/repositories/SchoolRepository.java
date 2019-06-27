@@ -49,7 +49,7 @@ public class SchoolRepository {
     public static School selectById(int id) {
         try(
             Connection connection = DriverManager.getConnection( DB_URL, DB_USER, DB_PASSWORD );
-            PreparedStatement statement = connection.prepareStatement( "SELECT * FROM schools WHERE id=?" );
+            PreparedStatement statement = connection.prepareStatement( "SELECT * FROM school WHERE id=?" );
         ) {
             statement.setInt(1, id);
 
@@ -63,7 +63,7 @@ public class SchoolRepository {
                     return new School(id, name, capacity, country);
                 }
                 else {
-                    throw new ResponseStatusException( HttpStatus.INTERNAL_SERVER_ERROR, "unknown id in table schools" );
+                    throw new ResponseStatusException( HttpStatus.INTERNAL_SERVER_ERROR, "unknown id in table school" );
                 }
             }
         }
@@ -76,7 +76,7 @@ public class SchoolRepository {
 
         try(
             Connection connection = DriverManager.getConnection( DB_URL, DB_USER, DB_PASSWORD );
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO schools (name, capacity, country) VALUES (?, ?, ?)",
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO school (name, capacity, country) VALUES (?, ?, ?)",
                 Statement.RETURN_GENERATED_KEYS );
         ) {
             statement.setString(1, name);
