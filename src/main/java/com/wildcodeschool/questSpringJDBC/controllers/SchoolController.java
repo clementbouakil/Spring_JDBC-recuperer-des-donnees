@@ -38,9 +38,9 @@ public class SchoolController {
     @PutMapping("/api/schools/{id}")
     public School update(
         @PathVariable int id,
-        @RequestParam(required = false) String name,
-        @RequestParam(required = false) Integer capacity,
-        @RequestParam(required = false) String country
+        @RequestParam(required = true) String name,
+        @RequestParam(required = true) Integer capacity,
+        @RequestParam(required = true) String country
     ) {
         School school = SchoolRepository.selectById(id);
         SchoolRepository.update(
@@ -50,6 +50,5 @@ public class SchoolController {
             country != null ? country : school.getCountry()
         );
         return SchoolRepository.selectById(id);
-        }
     }
 }
