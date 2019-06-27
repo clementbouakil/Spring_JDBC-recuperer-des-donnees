@@ -45,9 +45,9 @@ public class SchoolController {
         School school = SchoolRepository.selectById(id);
         SchoolRepository.update(
             id,
-            name != null ? name : school.getName(),
-            capacity != null ? capacity : school.getCapacity(),
-            country != null ? country : school.getCountry()
+            name == null ? name : school.getName(),
+            capacity == null ? capacity : school.getCapacity(),
+            country == null ? country : school.getCountry()
         );
         return SchoolRepository.selectById(id);
     }
