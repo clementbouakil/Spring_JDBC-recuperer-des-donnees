@@ -2,9 +2,10 @@ package com.wildcodeschool.questSpringJDBC.controllers;
 
 import java.util.List;
 
-import com.wildcodeschool.questSpringJDBC.repositories.SchoolRepository;
 import com.wildcodeschool.questSpringJDBC.entities.School;
+import com.wildcodeschool.questSpringJDBC.repositories.SchoolRepository;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

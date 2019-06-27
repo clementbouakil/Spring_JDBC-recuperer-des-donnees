@@ -9,10 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.wildcodeschool.questSpringJDBC.entities.School;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
-
-import com.wildcodeschool.questSpringJDBC.entities.School;
 
 public class SchoolRepository {
 
@@ -49,7 +49,7 @@ public class SchoolRepository {
     public static School selectById(int id) {
         try(
             Connection connection = DriverManager.getConnection( DB_URL, DB_USER, DB_PASSWORD );
-            PreparedStatement statement = connection.prepareStatement( "SELECT * FROM wizard WHERE id=?" );
+            PreparedStatement statement = connection.prepareStatement( "SELECT * FROM schools WHERE id=?" );
         ) {
             statement.setInt(1, id);
 
